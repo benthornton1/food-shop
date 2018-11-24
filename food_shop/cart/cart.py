@@ -22,23 +22,23 @@ class Cart(object):
 
 	def __iter__(self):
 		"""
-		Iterate over the items in the cart and get the books from the database.
+		Iterate over the items in the cart and get the foods from the database.
 		"""
 		food_ids = self.cart.keys()
-		# get the book objects and add them to the cart
+		# get the food objects and add them to the cart
 		foods = Food.objects.filter(id__in = food_ids)
 		for food in foods:
-			self.cart[str(book.id)]['book'] = book
+			self.cart[str(food.id)]['food'] = food
 			for item in self.cart.values():
 				item['price'] = Decimal(item['price'])
 				item['total_price'] = item['price'] * item['quantity']
 				yield item
 
-	def add(self, book, quantity=1, update_quantity=False):
+	def add(self, food, quantity=1, update_quantity=False):
 		"""
-		Add a book to the cart or update its quantity.
+		Add a food to the cart or update its quantity.
 		"""
-		food_id = str(book.id)
+		food_id = str(food.id)
 		if food_id not in self.cart:
 			self.cart[food_id] = {'quantity': 0,'price': str(food.price)}
 			if update_quantity:
@@ -47,9 +47,9 @@ class Cart(object):
 				self.cart[food_id]['quantity'] += quantity
 		self.save()
 
-	def remove(self, book):
+	def remove(self, food):
 		"""
-		Remove a book from the cart.
+		Remove a food from the cart.
 		"""
 		food_id = str(food.id)
 		if food_id in self.cart:

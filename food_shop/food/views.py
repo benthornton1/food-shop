@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from cart.forms import CartAddProductForm
 
 from .models import Food
 
@@ -13,4 +14,5 @@ def index(request):
 
 def detail(request, food_id):
     food = get_object_or_404(Food, pk=food_id)
-    return render(request, 'food/detail.html', {'food': food})
+    cart_food_form = CartAddProductForm()
+    return render(request, 'food/detail.html', {'food': food, 'cart_food_form': cart_food_form})

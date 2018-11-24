@@ -13,7 +13,7 @@
 <p>
   £{{ food.price }}
 </p>
-<form action="{% url "cart:cart_add" food.id %}" method="post">
+<form action="{% url 'cart:cart_add' food.id %}" method="post">
           {{ cart_food_form }}
           {% csrf_token %}
           <input type="submit" value="Add to cart">

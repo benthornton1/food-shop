@@ -8,7 +8,7 @@ def search_food(request):
     cart_food_form = CartAddProductForm()
     foods = foods.filter(title__icontains=query)
     context = {'genre':genre,'genres':genres,'books':books,'cart_book_form': cart_book_form, 'query':query}
-    if len(books)>0:
+    if len(food)>0:
         return render(request,"search.html",context)
     else:
         context = locals()
