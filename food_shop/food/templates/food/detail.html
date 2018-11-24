@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 <h1>{{ food.name }}</h1>
@@ -7,14 +8,15 @@
 </ul>
 <ul>
   <a>
-    <img src="{{ food.image.url }}" alt="img">
+    <img src="{% if food.image %}{{ food.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
   </a>
 </ul>
 <p>
   £{{ food.price }}
 </p>
-<form action="{% url 'cart:cart_add' food.id %}" method="post">
+<form action="{% url "cart:cart_add" food.id %}" method="post">
           {{ cart_food_form }}
+          {{ food.unit }}
           {% csrf_token %}
           <input type="submit" value="Add to cart">
 </form>
