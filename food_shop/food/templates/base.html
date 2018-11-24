@@ -20,7 +20,7 @@
           <li><a href="{% url "account:login" %}?next={{request.path}}">Login</a></li>
           <li><a href="{% url "account:signup" %}?next={{request.path}}">Register</a></li>
       {% endif %}
-      <li><a href="#">Cart</a></li>
+      <li><a href="{% url 'cart:cart_detail' %}">Cart</a></li>
       <li><a href="#">Category</a></li>
       <li><a href="{% url "account:info" %}">Account</a></li>
     </ul>
