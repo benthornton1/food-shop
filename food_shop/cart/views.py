@@ -7,7 +7,7 @@ from .forms import CartAddProductForm
 
 # Create your views here.
 @require_POST
-def cart_add(request, book_id):
+def cart_add(request, food_id):
     cart = Cart(request)
     food = get_object_or_404(Food, id=food_id)
     form = CartAddProductForm(request.POST)
@@ -36,4 +36,3 @@ def cart_detail(request):
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
                                                                    'update': True})
     return render(request, 'cart/detail.html', {'cart': cart})
-

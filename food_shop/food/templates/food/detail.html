@@ -10,7 +10,12 @@
     <img src="{{ food.image.url }}" alt="img">
   </a>
 </ul>
-<ul>
+<p>
   £{{ food.price }}
-</ul>
+</p>
+<form action="{% url "cart:cart_add" food.id %}" method="post">
+          {{ cart_food_form }}
+          {% csrf_token %}
+          <input type="submit" value="Add to cart">
+</form>
 {% endblock %}

@@ -21,10 +21,10 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-	path('cart/', include('cart.urls'), name = 'cart'),
     path('admin/', admin.site.urls),
+    path('cart/', include('cart.urls', namespace='cart')),
     path('account/', include('account.urls'), name = 'account'),
-    path('food/', include('food.urls'), name = 'food'),
+    path('food/', include('food.urls', namespace= 'food')),
     path('',include('food.urls'),name ='main')
 ]
 
