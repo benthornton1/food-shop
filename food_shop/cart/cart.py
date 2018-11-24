@@ -67,5 +67,8 @@ class Cart(object):
 		self.session[settings.CART_SESSION_ID] = {}
 		self.session.modified = True
 
+	def add_from_recipe(self):
+		return 5
+
 	def get_total_price(self):
 		return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
