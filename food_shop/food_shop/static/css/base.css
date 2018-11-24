@@ -25,14 +25,14 @@ nav li {
 }
 
 nav a {
-  color: #444;
+  color: #3487f7;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
 }
 
 nav a:hover {
-  color: #444;
+  color: #3487f7;
 }
 
 nav a::before {
@@ -56,4 +56,17 @@ nav a:hover::before {
 wrapper {
   font-weight: bold;
   color: #FFF;
+}
+
+wrapper{
+	background: #FFF;
+	padding-top: 0px;
+	font-weight: 600;
+	font-stretch: expanded;
+}
+
+wrapper::after {
+	content: '';
+	display: table;
+	clear: both;
 }
