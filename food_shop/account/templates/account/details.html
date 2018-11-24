@@ -1,4 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-{{ account_details.id }}
+<h1>{{ account_details.get_full_name }}'s Account</h1>
+<div id="main" class="product-list">
+        <h2>Orders</h2>
+        {% for order in orders reversed %}
+            <li>Order ID {{ order.id }} - {{ order.created }}</li>
+            {% for order_info in order_info_list reversed %}
+                {% if order.id == order_info.order_id %}
+                    <ul>- {{ order_info.food.name }} x {{ order_info.quantity }}</ul>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
