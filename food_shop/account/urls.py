@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^login/$', auth_views.LoginView.as_view(template_name="account/login.html"), name="login"),
     url(r'^logout/$', auth_views.LogoutView.as_view(template_name="account/logged_out.html"), name="logout"),
     url(r'^signup/$', core_views.signup, name='signup'),
+    url(r'^profile/$', core_views.account_info, name='info')
 ]
