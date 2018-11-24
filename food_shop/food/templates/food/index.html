@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+
+{% block content %}
 {% if food_list %}
     <ul>
     {% for food in food_list %}
@@ -7,3 +11,4 @@
 {% else %}
     <p>We are out of food :(</p>
 {% endif %}
+{% endblock %}
