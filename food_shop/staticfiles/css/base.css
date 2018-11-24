@@ -1,4 +1,4 @@
-nav {
+navtools {
   background-color: #FFF;
   position: fixed;
   float: left;
@@ -6,7 +6,7 @@ nav {
   z-index: 999;
 }
 
-nav ul {
+navtools ul {
   margin: 0;
   padding: 0;
   padding-right: 40px;
@@ -16,7 +16,7 @@ nav ul {
   position: relative;
 }
 
-nav li {
+navtools li {
   display: inline-block;
   margin-left: 50px;
   padding-top: 21px;
@@ -24,18 +24,18 @@ nav li {
   position: relative;
 }
 
-nav a {
+navtools a {
   color: #444;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
 }
 
-nav a:hover {
+navtools a:hover {
   color: #444;
 }
 
-nav a::before {
+navtools a::before {
   content: '';
 	display: block;
 	height: 5px;
@@ -49,11 +49,10 @@ nav a::before {
 	transition: all ease-in-out 250ms;
 }
 
-nav a:hover::before {
+navtools a:hover::before {
   width: 100%;
 }
 
 wrapper {
   font-weight: bold;
-  color: #FFF;
 }
