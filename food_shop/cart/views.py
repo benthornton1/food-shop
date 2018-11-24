@@ -27,7 +27,7 @@ def cart_add_from_recipe(request, web_url):
         query = Food.objects.filter(name=ing)
         if len(query) > 0:
             food = get_object_or_404(Food,id=query[0].id)
-            cart.add(food=food,quantity=1,false)
+            cart.add(food=food,quantity=1,update_quantity=false)
     return redirect('cart:cart_detail')
 
 def cart_remove(request, food_id):
