@@ -25,28 +25,28 @@ nav li {
 }
 
 nav a {
-  color: #3487f7;
+  color: #444;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
 }
 
 nav a:hover {
-  color: #3487f7;
+  color: #444;
 }
 
 nav a::before {
   content: '';
-	display: block;
-	height: 5px;
-	width: 100%;
-	background-color: #FFD241;
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: #FFD241;
 
-	position: absolute;
-	top: 0;
-	width: 0%;
+  position: absolute;
+  top: 0;
+  width: 0%;
 
-	transition: all ease-in-out 250ms;
+  transition: all ease-in-out 250ms;
 }
 
 nav a:hover::before {
@@ -56,17 +56,4 @@ nav a:hover::before {
 wrapper {
   font-weight: bold;
   color: #FFF;
-}
-
-wrapper{
-	background: #FFF;
-	padding-top: 0px;
-	font-weight: 600;
-	font-stretch: expanded;
-}
-
-wrapper::after {
-	content: '';
-	display: table;
-	clear: both;
 }
