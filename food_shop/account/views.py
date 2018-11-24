@@ -1,8 +1,8 @@
 #adapted from https://simpleisbetterthancomplex.com/tutorial/2017/02/18/how-to-create-user-sign-up-view.html
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from . models import Profile
 from order.models import Order, OrderItem
+from django.contrib.auth.models import User
 
 from .forms import SignUpForm
 
@@ -28,7 +28,6 @@ def signup(request):
 
 def account_info(request):
     current_user = request.user
-    profile_details = Profile.objects.filter(user_id=current_user.id)
     orders = Order.objects.filter(user_id=request.user.id)
     order_info_list = []
     for order in orders:
@@ -36,7 +35,6 @@ def account_info(request):
     template = 'account/details.html'
     context = {
         'account_details': current_user,
-        'profile_details': profile_details,
         'orders': orders,
         'order_info_list': order_info_list,
     }
