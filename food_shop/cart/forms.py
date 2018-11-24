@@ -1,4 +1,5 @@
 from django import forms
+from food.models import Food
 
 PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
 
