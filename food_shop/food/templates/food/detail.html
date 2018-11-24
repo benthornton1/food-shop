@@ -6,7 +6,9 @@
   {{ food.description }}
 </ul>
 <ul>
-  {{ food.image }}
+  <a>
+    <img src="{{ food.image.url }}" alt="img">
+  </a>
 </ul>
 <ul>
   £{{ food.price }}
