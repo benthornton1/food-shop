@@ -13,8 +13,13 @@
   <wrapper>
   <nav>
     <ul>
-      <li><a href="{% url 'account:login' %}">Log in</a></li>
-      <li><a href="{% url 'account:signup' %}">Register</a></li>
+      {% if user.is_authenticated %}
+          {{ user.get_full_name }}
+          <li><a href="{% url "account:logout" %}">Logout</a></li>
+      {% else %}
+          <li><a href="{% url "account:login" %}?next={{request.path}}">Login</a></li>
+          <li><a href="{% url "account:signup" %}?next={{request.path}}">Register</a></li>
+      {% endif %}
       <li><a href="#">Cart</a></li>
       <li><a href="#">Category</a></li>
       <li><a href="#">Account</a></li>
