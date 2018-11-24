@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+{% block content %}
+
+<h1>Checkout</h1>
+
+<div class="order-info">
+    <h3>Your order</h3>
+    <table>
+        <col width="20%">
+        <col width="80%">
+        {% for item in cart %}
+        <tr>
+            <td class="mini-img-td">
+                <img class="mini-img" src="{% if item.book.image %}{{ item.book.image.url }}{% endif %}">
+            </td>
+            <td class="book-info-td">
+                {{ item.quantity }} x {{ item.book.title }} <span>£{{ item.total_price }}</span>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p>Total: £{{ cart.get_total_price }}</p>
+</div>
+
+<div class="checkout"> 
+
+    <h3>Your order will be delivered to:</h3>
+
+    <p>
+        {{ user.first_name }} {{ user.last_name }}<br>
+        {{ user.profile.address }}<br>
+        {{ user.profile.city }}<br>
+        {{ user.profile.postcode }}
+    </p>
+
+    <h3>Payment details:</n3>
+        <form action="." method="post">
+            {% for field in form %}
+                <table>
+                    <tr>
+                        <td>{{ field.label_tag }}</td>
+                    </tr>
+                    <tr>
+                        <td> {{ field }}</td>
+                        <td> {{ field.errors }}</td>
+                    </tr>
+                    <tr>
+                        
+                        
+                    </tr>
+                 </table>
+             {% endfor %}
+
+         <p><input type="submit" value="Place Order"></p>
+         {% csrf_token %}
+     </form>
+     
+ </p>
+</div>
+
+
+{% endblock %}
