@@ -3,7 +3,7 @@ from django.views.decorators.http import require_POST
 from food.models import Food
 from .cart import Cart
 from .forms import CartAddProductForm
-
+from recipe_scrapers import scrape_me
 
 # Create your views here.
 @require_POST
@@ -18,6 +18,17 @@ def cart_add(request, food_id):
                  update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
+
+def cart_add_from_recipe(request, web_url):
+    cart = Cart(request)
+    scraper = scrape_me(web_url)
+    ingredients = scraper.ingredients()
+    for ing in ingredients:
+        query = Food.objects.filter(name=ing)
+        if len(query) > 0:
+            food = get_object_or_404(Food,id=query[0].id)
+            cart.add(food=food,quantity=1,update_quantity=false)
+    return redirect('cart:cart_detail')
 
 def cart_remove(request, food_id):
     cart = Cart(request)

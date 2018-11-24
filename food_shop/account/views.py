@@ -1,6 +1,7 @@
 #adapted from https://simpleisbetterthancomplex.com/tutorial/2017/02/18/how-to-create-user-sign-up-view.html
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
+from . models import Profile
 
 from .forms import SignUpForm
 
@@ -22,3 +23,16 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'account/signup.html', {'form': form})
+
+
+def account_info(request):
+    current_user = request.user
+    profile_details = Profile.objects.filter(user_id=current_user.id)
+    template = 'account/details.html'
+    context = {
+        'account_details': current_user,
+        'profile_details': profile_details
+    }
+    return render(request, template, context)
+
+
