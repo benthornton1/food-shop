@@ -2,7 +2,9 @@ from decimal import Decimal
 from django.conf import settings
 from food.models import Food
 
+
 class Cart(object):
+
 	def __init__(self, request):
 		"""
 		Initialize the cart.
@@ -29,10 +31,11 @@ class Cart(object):
 		foods = Food.objects.filter(id__in = food_ids)
 		for food in foods:
 			self.cart[str(food.id)]['food'] = food
-			for item in self.cart.values():
-				item['price'] = Decimal(item['price'])
-				item['total_price'] = item['price'] * item['quantity']
-				yield item
+			
+		for item in self.cart.values():
+			item['price'] = Decimal(item['price'])
+			item['total_price'] = item['price'] * item['quantity']
+			yield item
 
 	def add(self, food, quantity=1, update_quantity=False):
 		"""
