@@ -1,4 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-{{ account_details.id }}
+<h1>{{ account_details.get_full_name }}'s Account</h1>
+<div id="main" class="product-list">
+	<h2>Account Info</h2>
+	<li>Full Name - {{ account_details.get_full_name }}</li>
+	<li>Username - {{ account_details.username }}</li>
+	<li>Email Address - {{ account_details.email }}</li>
+	<li>Address - {{ account_details.profile.address }}</li>
+	<li>City - {{ account_details.profile.city }}</li>
+	<li>Postcode - {{ account_details.profile.postcode }}</li>
+
+    <h2>Orders</h2>
+    {% for order in orders reversed %}
+        <li>Order ID {{ order.id }} - {{ order.created }}</li>
+        {% for order_info in order_info_list reversed %}
+            {% if order.id == order_info.order_id %}
+                <ul>- {{ order_info.food.name }} x {{ order_info.quantity }}</ul>
+            {% endif %}
+        {% endfor %}
+        <a href="{% url "cart:cart_readd" order.id %}" class="button light">Re-add everything to cart</a>
+    {% endfor %}
+</div>
 {% endblock %}

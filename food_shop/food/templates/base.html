@@ -13,8 +13,9 @@
   <wrapper>
   <nav>
     <ul>
+      <li><a href="/">Home</a></li>
       {% if user.is_authenticated %}
-          {{ user.get_full_name }}
+          {#{ user.get_full_name }#}
           <li><a href="{% url "account:logout" %}">Logout</a></li>
       {% else %}
           <li><a href="{% url "account:login" %}?next={{request.path}}">Login</a></li>
@@ -28,13 +29,20 @@
   </wrapper>
 </div>
 
+
 <div id="content">
   <br>
   <br>
   <br>
-	TEST
 	{% block content %}
 	{% endblock %}
+</div>
+
+<div class="search">
+            <form name="searchForm" method="GET" action="{% url "search:search_food" %}">
+              <input type="text" name="search" placeholder="Search" />
+              <input type="submit"  value="Search" />
+            </form>
 </div>
 
 

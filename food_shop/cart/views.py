@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 from food.models import Food
+from order.models import OrderItem
 from .cart import Cart
 from .forms import CartAddProductForm, CartAddFromRecipeForm
 from recipe_scrapers import scrape_me
@@ -18,7 +19,22 @@ def cart_add(request, food_id):
                  update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
+<<<<<<< HEAD
 """
+=======
+
+def cart_readd(request, order_id):
+    cart = Cart(request)
+    order_items = OrderItem.objects.filter(order_id = order_id)
+    if len(order_items) > 0:
+        for item in order_items:
+            cart.add(food=item.food,
+                    quantity=item.quantity)
+    return redirect('cart:cart_detail')
+
+
+
+>>>>>>> 7bca535fd7ab2d356a9ee4aed6e66cf21aaf00c3
 def cart_add_from_recipe(request, web_url):
     cart = Cart(request)
     scraper = scrape_me(web_url)

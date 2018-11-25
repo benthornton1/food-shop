@@ -16,10 +16,10 @@ Checkout
         {% for item in cart %}
         <tr>
             <td class="mini-img-td">
-                <img class="mini-img" src="{% if item.book.image %}{{ item.book.image.url }}{% endif %}">
+                <img class="mini-img" src="{% if item.food.image %}{{ item.food.image.url }}{% endif %}">
             </td>
-            <td class="book-info-td">
-                {{ item.quantity }} x {{ item.book.title }} <span>£{{ item.total_price }}</span>
+            <td class="food-info-td">
+                {{ item.quantity }} x {{ item.food.title }} <span>£{{ item.total_price }}</span>
             </td>
         </tr>
         {% endfor %}
