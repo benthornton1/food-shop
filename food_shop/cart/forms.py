@@ -12,4 +12,6 @@ class CartAddProductForm(forms.Form):
                                 initial=False,
                                 widget=forms.HiddenInput)
 
+class CartAddFromRecipeForm(forms.Form):
+	recipe_url = forms.CharField(label = 'Recipe Url:', max_length=200)
 
