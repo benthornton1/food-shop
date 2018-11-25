@@ -4,13 +4,13 @@ from django.db import models
 
 class Food(models.Model):
     grams = 'g'
-    single = 'single'
+    single = 'unit'
     kilograms = 'kg'
     milliliters = 'ml'
     liters = 'l'
     UNIT_CHOICES = (
         (grams, 'Grams'),
-        (single, 'Single'),
+        (single, 'Unit'),
         (kilograms, 'Kilograms'),
         (milliliters, 'Milliliters'),
         (liters, 'Liters'),

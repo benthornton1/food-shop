@@ -52,6 +52,9 @@ nav a::before {
 nav a:hover::before {
   width: 100%;
 }
+nav ul form {
+  padding-top: 21px;
+}
 
 wrapper {
   font-weight: bold;

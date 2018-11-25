@@ -3,15 +3,19 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>{% block title %}FOOD SHOP{% endblock %}</title>
+    <title>{% block title %}Ounce{% endblock %}</title>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 <body>
+
 <div id="navtools">
+
   <wrapper>
+
   <nav>
+    <a href="/" class="logo">
+      <img src="{% static "img/logo.png" %}" >
+    </a>
     <ul>
       <li><a href="/">Home</a></li>
       {% if user.is_authenticated %}
@@ -24,7 +28,15 @@
       <li><a href="{% url 'cart:cart_detail' %}">Cart</a></li>
       <li><a href="#">Category</a></li>
       <li><a href="{% url "account:info" %}">Account</a></li>
+
+      <li><form name="searchForm" method="GET" action="{% url "search:search_food" %}">
+        <input type="text" name="search" placeholder="Search" />
+        <input type="submit"  value="Search" />
+      </form></li>
+
     </ul>
+
+
   </nav>
   </wrapper>
 </div>
@@ -34,19 +46,23 @@
   <br>
   <br>
   <br>
+<<<<<<< HEAD
+=======
+  <br>
+  <br>
+  <br>
+  <br>
+	Food Items
+>>>>>>> ben
 	{% block content %}
 	{% endblock %}
 </div>
 
-<div class="search">
-            <form name="searchForm" method="GET" action="{% url "search:search_food" %}">
-              <input type="text" name="search" placeholder="Search" />
-              <input type="submit"  value="Search" />
-            </form>
-</div>
+
 
 
 <div id="footer">
 
 </div>
 </body>
+</html>

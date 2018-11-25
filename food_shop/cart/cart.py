@@ -31,7 +31,10 @@ class Cart(object):
 		foods = Food.objects.filter(id__in = food_ids)
 		for food in foods:
 			self.cart[str(food.id)]['food'] = food
+<<<<<<< HEAD
 			
+=======
+>>>>>>> ben
 		for item in self.cart.values():
 			item['price'] = Decimal(item['price'])
 			item['total_price'] = item['price'] * item['quantity']
