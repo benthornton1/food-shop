@@ -26,7 +26,8 @@ urlpatterns = [
     path('account/', include('account.urls'), name = 'account'),
     path('food/', include('food.urls', namespace= 'food')),
     path('order/', include('order.urls', namespace= 'order')),
-    path('',include('food.urls'),name ='main')
+    path('',include('food.urls'),name ='main'),
+    path('search/', include('search.urls', namespace='search')),
 ]
 
 if settings.DEBUG:
