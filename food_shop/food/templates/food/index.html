@@ -3,17 +3,20 @@
 
 
 {% block content %}
+<h3>Food Items</h3>
 {% if food_list %}
     <ul>
     {% for food in food_list %}
         <li>
             <a>
+              <div class="polaroid">
               <div class="container">
                 <img src="{% if food.image %}{{ food.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}"  alt="Food" class="image" style="width:100%">
                 <div class="middle">
                   <div class="text"><a href="{% url 'food:detail' food.id %}">{{ food.name }}</a></div>
                 </div>
               </div>
+            </div>
             </a>
         </li>
     {% endfor %}

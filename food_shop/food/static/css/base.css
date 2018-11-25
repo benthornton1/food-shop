@@ -74,10 +74,17 @@ wrapper {
   list-style-type: none;
 }
 
+#content  {
+  text-align: center;
+}
+
 #content .container {
     position: relative;
     width: 30%;
     padding-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #content .image {
@@ -87,6 +94,7 @@ wrapper {
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #content .middle {
