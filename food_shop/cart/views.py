@@ -19,9 +19,6 @@ def cart_add(request, food_id):
                  update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
-<<<<<<< HEAD
-"""
-=======
 
 def cart_readd(request, order_id):
     cart = Cart(request)
@@ -34,7 +31,7 @@ def cart_readd(request, order_id):
 
 
 
->>>>>>> 7bca535fd7ab2d356a9ee4aed6e66cf21aaf00c3
+"""
 def cart_add_from_recipe(request, web_url):
     cart = Cart(request)
     scraper = scrape_me(web_url)
