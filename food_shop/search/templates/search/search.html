@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if food %}
+<div id="main" class="product-list">
+    <h1>Food</h1>
+    <h4>Search results for: {{ query }}</h4>
+    <p>
+    {% for f in food %}
+        <div class="item">
+
+                <img src="{% if f.image %}{{ f.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+            <h3><a href="{% url 'food:detail' f.id %}">{{ f.name }}</a></h3>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

@@ -29,12 +29,20 @@
   </wrapper>
 </div>
 
+
 <div id="content">
   <br>
   <br>
   <br>
 	{% block content %}
 	{% endblock %}
+</div>
+
+<div class="search">
+            <form name="searchForm" method="GET" action="{% url "search:search_food" %}">
+              <input type="text" name="search" placeholder="Search" />
+              <input type="submit"  value="Search" />
+            </form>
 </div>
 
 

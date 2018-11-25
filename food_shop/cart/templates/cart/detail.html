@@ -23,7 +23,7 @@
             {% with food=item.food %}
             <tr>
                 <td>
-                    <a href="{{ food.get_absolute_url }}">
+                    <a href="{% url 'food:detail' food.id %}">
                         <img src="{% if food.image %}{{ food.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
                     </a>
                 </td>

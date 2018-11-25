@@ -17,7 +17,7 @@ class Food(models.Model):
     )
     name = models.CharField(max_length=200)
     description = models.TextField()
-    price = models.DecimalField(decimal_places=2, max_digits=10)
+    price = models.DecimalField(decimal_places=10, max_digits=20)
     stock = models.PositiveIntegerField()
     unit = models.CharField(max_length = 200, choices = UNIT_CHOICES, default=grams)
     available = models.BooleanField(default=True)
@@ -25,3 +25,6 @@ class Food(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('food:food_detail', args=[self.food_id])
