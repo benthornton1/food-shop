@@ -21,8 +21,8 @@
           <li><a href="{% url "account:login" %}?next={{request.path}}">Login</a></li>
           <li><a href="{% url "account:signup" %}?next={{request.path}}">Register</a></li>
       {% endif %}
-      <li><a href="{% url 'cart:cart_detail' %}">Cart</a></li>
-      <li><a href="#">Category</a></li>
+      <li><a href="{% url "cart:cart_detail" %}">Cart</a></li>
+      <li><a href="{% url "food:categories" %}"">Category</a></li>
       <li><a href="{% url "account:info" %}">Account</a></li>
     </ul>
   </nav>
@@ -39,10 +39,10 @@
 </div>
 
 <div class="search">
-            <form name="searchForm" method="GET" action="{% url "search:search_food" %}">
-              <input type="text" name="search" placeholder="Search" />
-              <input type="submit"  value="Search" />
-            </form>
+    <form name="searchForm" method="GET" action="{% url "search:search_food" %}">
+        <input type="text" name="search" placeholder="Search" />
+        <input type="submit"  value="Search" />
+    </form>
 </div>
 
 
