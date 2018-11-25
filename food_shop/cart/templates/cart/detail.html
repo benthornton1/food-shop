@@ -53,10 +53,12 @@
         <a href="{% url "cart:cart_clear" %}" class="button light">Clear Basket</a>
         <a href="{% url "food:index" %}" class="button light">Continue shopping</a>
         <a href="{% url "order:order_create" %}" class="button light">Checkout</a>
-        <form id="searchform" action="{#% url 'cart:cart_add_from_recipe' %#}" method="post">
-            <button class="searchbutton" type="submit">
-            </button>
-            <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+
+        <form action="{% url "cart:cart_detail" %}" method="post">
+            {% csrf_token %}
+            {{ recipe_url_form }}
+            <input type="submit" value="Submit">
         </form>
+
     </p>
 {% endblock %}
