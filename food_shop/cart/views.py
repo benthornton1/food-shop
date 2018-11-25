@@ -18,18 +18,7 @@ def cart_add(request, food_id):
                  update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
-"""
-def cart_add_from_recipe(request, web_url):
-    cart = Cart(request)
-    scraper = scrape_me(web_url)
-    ingredients = scraper.ingredients()
-    for ing in ingredients:
-        query = Food.objects.filter(name=ing)
-        if len(query) > 0:
-            food = get_object_or_404(Food,id=query[0].id)
-            cart.add(food=food,quantity=1,update_quantity=false)
-    return redirect('cart:cart_detail')
-"""
+
 
 def get_recipe_url(request):
     cart = Cart(request)
@@ -45,15 +34,14 @@ def get_recipe_url(request):
             url = cd['recipe_url']
             scraper = scrape_me(url)
             ingredients = scraper.ingredients()
-            print(ingredients)
+       
             for ing in ingredients:
                 words = ing.split(" ")
                 for word in words:
                     query = Food.objects.filter(name=word)
-                    
                     if len(query) > 0:
                         cur_food = food=query[0]
-                        cart.add(food=cur_food)
+                        cart.add(cur_food)
 
             
             return render(request,'cart/detail.html', { 'recipe_url_form':form })
