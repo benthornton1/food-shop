@@ -9,6 +9,7 @@
 	<li>Address - {{ account_details.profile.address }}</li>
 	<li>City - {{ account_details.profile.city }}</li>
 	<li>Postcode - {{ account_details.profile.postcode }}</li>
+
     <h2>Orders</h2>
     {% for order in orders reversed %}
         <li>Order ID {{ order.id }} - {{ order.created }}</li>
@@ -17,6 +18,7 @@
                 <ul>- {{ order_info.food.name }} x {{ order_info.quantity }}</ul>
             {% endif %}
         {% endfor %}
+        <a href="{% url "cart:cart_readd" order.id %}" class="button light">Re-add everything to cart</a>
     {% endfor %}
 </div>
 {% endblock %}
